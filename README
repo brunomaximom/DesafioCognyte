@@ -1,0 +1,22 @@
+Para compilar o server independente qual o compilador default do sistema operacional:
+c++ server.cpp -o server -lboost_system -pthread -lboost_thread
+
+Para compilar o client independente qual o compilador default do sistema operacional:
+c++ client.cpp -o client -lboost_system -pthread
+
+Para buildar execute o script ./build.sh (necessita chmod +x).
+
+Dificuldades encontradas:
+1) Nunca trabalhei com boost antes precisei de exemplos para me embasar;
+2) Testei com o MAX_FILESIZE 5, entao se a string passada no cliente for de tamanho 10, ele gera 2 arquivos de 5 bytes + 1 arquivo de \0
+
+Como usar:
+Inicie o server com ./server
+Inicie o client com ./client localhost 9999 (como configurado no config.cfg e digite uma string no prompt que aparece. Ele ira retornar o valor dessa string e o server ira criar os 
+files.
+
+Tempo gasto:
+Mais ou menos 8 horas. Maior parte do tempo gastei procurando sobre a biblioteca boost.
+
+Biblioteca boost usada: 1.67 do repositorio do Debian Stable (apt install libboost-all-dev)
+Asio usada: 1.12.2 tambem do repositorio do Debian Stable (apt install libasio-dev)
